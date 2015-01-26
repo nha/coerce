@@ -1,21 +1,17 @@
-(ns coerce.core)
+(ns coerce.core
+  "coerce"
+    (:import (java.util Date)))
 
-
-
-
+;; avoid name collision
+(def DateTime java.util.Date)
 
 (defn coerce-single
   [obj schema path]
-  (println "coerce single obj" obj "schema" schema "path" path)
   (let [type (get-in schema path)
         value (get-in obj path)]
-    (println "type" type "value" value)
-    (println (instance? type value))
     (if (instance? type value)
       obj
-      {} ;; TODO throw error
-      )
-    ))
+      {} )))
 
 
 
