@@ -1,9 +1,10 @@
 (ns coerce.core)
 
-;;; This is an incorrect implementation, such as might be written by
-;;; someone who was used to a Lisp in which an empty list is equal to
-;;; nil.
-(defn first-element [sequence default]
-  (if (nil? sequence)
-    default
-    (first sequence)))
+(defn coerce
+  "
+  Coerces a map from a JSON object
+  Keys not in the schema definition are to be thrown away
+  "
+  [obj schema]
+  (println "obj" obj "schema" schema)
+  {})
