@@ -10,4 +10,7 @@
   (fact "Empty schemas always yield empty results"
     (coerce {} {}) => {}
     (coerce {:key "value"} {}) => {}
-    (coerce {:oneKey "oneValue", :anotherKey "anotherValue"} {}) => {}))
+    (coerce {:oneKey "oneValue", :anotherKey "anotherValue"} {}) => {})
+
+  (fact "coerces depth one maps for basic types"
+    (coerce {:name "a string"} {:name String}) => {:name "a string"}))
