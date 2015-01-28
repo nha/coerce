@@ -23,27 +23,32 @@ te a function that coerces an object â€” originating from a parsed JSON string â
 
 Below is an example schema definition, that should successfully coerce an object of a corresponding structure, with all values as strings. Keys that do not exist in the schema definition should be thrown away from the coerced object.
 
-(def schema {
-    :_id  Double
-    :name String
-    :url  String
-    :date DateTime
-    :meta {
-        :image-url String
-        :content   String
-        :extern {
-            :sample Boolean
-            :frame  Boolean
-            :id     Double
-            }}
-        :order [{
-            :language String
-            :price    Double
-            }]
-        :active Boolean
-        :i18n [{
-            :name String
-            :description String
-            }]}
+    (def schema {
+        :_id  Double
+        :name String
+        :url  String
+        :date DateTime
+        :meta {
+            :image-url String
+            :content   String
+            :extern {
+                :sample Boolean
+                :frame  Boolean
+                :id     Double
+                }}
+            :order [{
+                :language String
+                :price    Double
+                }]
+            :active Boolean
+            :i18n [{
+                :name String
+                :description String
+                }]}
 
+## Additionnal information
 
+ * The DateTime class is from the Joda-Time library. The Java Date and Calendar classes are not great.
+ * Cheshire (https://github.com/dakrone/cheshire) is used to parse the JSON, where all values are String.
+   Clojure map where all values are strings. You then use the schema definition to coerce the values into the correct types
+ * A new map is returned by the function
