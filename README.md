@@ -46,7 +46,7 @@ Below is an example schema definition, that should successfully coerce an object
                 :description String
                 }]}
 
-## Additionnal information
+## Additional information
 
  * The DateTime class is from the Joda-Time library. The Java Date and Calendar classes are not great.
  * Cheshire (https://github.com/dakrone/cheshire) is used to parse the JSON, where all values are String.
